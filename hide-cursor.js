@@ -11,16 +11,20 @@ angular.module("com.javiercejudo.videogular.plugins.autohide-cursor", [])
         var autoHideTime = VG_AUTOHIDE_CURSOR_DEFAULT_TIME, hideTimeout, vgAutohideCursorTime;
 
         element.on('mousemove', function () {
+          element.css('cursor', 'auto');
+          $timeout.cancel(hideTimeout);
+
+          if (attrs.vgAutohideCursor === "false") {
+            return;
+          }
+
           if (angular.isDefined(attrs.vgAutohideCursorTime)) {
             vgAutohideCursorTime = attrs.vgAutohideCursorTime;
 
             if (parseInt(vgAutohideCursorTime, 10).toString() === vgAutohideCursorTime) {
-              autoHideTime = vgAutohideCursorTime;
+              autoHideTime = parseInt(vgAutohideCursorTime, 10);
             }
           }
-
-          $timeout.cancel(hideTimeout);
-          element.css('cursor', 'auto');
 
           hideTimeout = $timeout(function () {
             element.css('cursor', 'none');
