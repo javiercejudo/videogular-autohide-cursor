@@ -34,6 +34,8 @@ for hiding the cursor. The default is 1 second.
 Additionally, you will need to add the plugin as a dependency of your application:
 
 ```js
-"use strict";
-angular.module("videogularApp", ["com.javiercejudo.videogular.plugins.autohide-cursor"]);
+angular.module("myVideogularApp", [
+  "com.2fdevs.videogular",
+  "com.javiercejudo.videogular.plugins.autohide-cursor"
+]);
 ```
