@@ -1,18 +1,19 @@
-# videogular-hide-cursor
+# videogular-autohide-cursor
 
-Videogular `Hide Cursor` plugin
+Videogular Autohide-Cursor plugin
 
-## Install
+## How to install
 
 Install [Videogular](http://www.videogular.com/) `Hide Cursor` plugin with Bower:
 
-`bower install videogular-hide-cursor`
+`bower install videogular-autohide-cursor`
 
 ## How to use
-Add the vg-hide-cursor directive to your `videogular` element:
+
+Add the vg-autohide-cursor directive to your `videogular` element:
 
 ```html
-<videogular vg-autohide-cursor="config.hideCursor.enabled" vg-hide-cursor-time="config.hideCursor.time">
+<videogular vg-autohide-cursor="config.autohideCursor.enabled" vg-autohide-cursor-time="config.autohideCursor.time">
 	<video class='videoPlayer' preload='metadata'>
 		<source type="video/type" src="path/to/video" />
 	</video>
@@ -26,7 +27,7 @@ Additionally, you will need to add the module and videogular to your application
 angular.module("videogularApp",
     [
         "com.2fdevs.videogular",
-        "com.javiercejudo.videogular.plugins.hide-cursor"
+        "com.javiercejudo.videogular.plugins.autohide-cursor"
     ]
 );
 ```
