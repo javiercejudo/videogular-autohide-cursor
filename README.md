@@ -10,7 +10,7 @@ Install [Videogular](http://www.videogular.com/) `Hide Cursor` plugin with Bower
 
 ## How to use
 
-Add the vg-autohide-cursor directive to your `videogular` element:
+Add the `vg-autohide-cursor` directive to your `videogular` element:
 
 ```html
 <videogular vg-autohide-cursor="{{ config.autohideCursor.enabled }}" vg-autohide-cursor-time="{{ config.autohideCursor.time }}">
@@ -19,6 +19,9 @@ Add the vg-autohide-cursor directive to your `videogular` element:
   </video>
 </videogular>
 ```
+
+Use the `vg-autohide-cursor-time` attribute to customise the delay for hiding the cursor.
+The default is 1 second.
 
 Additionally, you will need to add the module and videogular to your application:
 
