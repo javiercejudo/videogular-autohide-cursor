@@ -11,9 +11,18 @@ angular.module("com.javiercejudo.videogular.plugins.autohide-cursor", ['debounce
       return function (scope, element, attrs) {
         var
           autoHideTime = VG_AUTOHIDE_CURSOR_TIME_DEFAULT,
-          originalCursor = element.css('cursor'),
           vgAutohideCursorTime,
-          hideTimeout;
+          originalCursor,
+          hideTimeout,
+          target;
+
+        target = element;
+
+        if (angular.isDefined(attrs.vgAutohideCursorTarget)) {
+          target =  angular.element(element[0].getElementsByClassName(attrs.vgAutohideCursorTarget));
+        }
+
+        originalCursor = target.css('cursor');
 
         element.on('mousemove', function () {
           if (attrs.vgAutohideCursor === "false") {
@@ -27,8 +36,8 @@ angular.module("com.javiercejudo.videogular.plugins.autohide-cursor", ['debounce
           $timeout.cancel(hideTimeout);
           hideTimeout = null;
 
-          if (element.css('cursor') !== originalCursor) {
-            element.css('cursor', originalCursor);
+          if (target.css('cursor') !== originalCursor) {
+            target.css('cursor', originalCursor);
           }
         })
 
@@ -46,7 +55,7 @@ angular.module("com.javiercejudo.videogular.plugins.autohide-cursor", ['debounce
           }
 
           hideTimeout = $timeout(function () {
-            element.css('cursor', 'none');
+            target.css('cursor', 'none');
           }, autoHideTime);
         }, VG_AUTOHIDE_CURSOR_DEBOUNCE));
       };
